@@ -1,0 +1,15 @@
+namespace "rules"
+
+interface {
+  decide(facts: Facts): [Decision]
+}
+
+type Facts {
+  income: u64
+  creditScore: u16
+}
+
+type Decision {
+  code: string
+  message: string
+}

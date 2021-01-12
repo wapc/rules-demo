@@ -1,0 +1,19 @@
+schema: schema.widl
+generates:
+  assembly/module.ts:
+    package: widl-codegen/language/assemblyscript
+    visitorClass: ModuleVisitor
+  assembly/index.ts:
+    ifNotExists: true
+    package: widl-codegen/language/assemblyscript
+    visitorClass: ScaffoldVisitor
+    config:
+      package: './module'
+---
+schema: schema.widl
+generates:
+  pkg/rules/rules.go:
+    package: widl-codegen/language/go
+    visitorClass: ModuleVisitor
+    config:
+      packageName: rules
