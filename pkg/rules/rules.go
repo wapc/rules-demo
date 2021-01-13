@@ -39,15 +39,15 @@ func (m *Module) Decide(ctx context.Context, facts Facts) ([]Decision, error) {
 }
 
 type DecideArgs struct {
-	Facts Facts `msgpack:"facts"`
+	Facts Facts `json:"facts" msgpack:"facts"`
 }
 
 type Facts struct {
-	Income      uint64 `msgpack:"income"`
-	CreditScore uint16 `msgpack:"creditScore"`
+	Income      uint64 `json:"income" msgpack:"income"`
+	CreditScore uint16 `json:"creditScore" msgpack:"creditScore"`
 }
 
 type Decision struct {
-	Code    string `msgpack:"code"`
-	Message string `msgpack:"message"`
+	Code    string `json:"code" msgpack:"code"`
+	Message string `json:"message" msgpack:"message"`
 }

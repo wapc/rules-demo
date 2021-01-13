@@ -16,7 +16,7 @@ curl -s -X POST \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-	"Income": 4000,
+	"Income": 3000,
 	"CreditScore": 300
 }'
 ```

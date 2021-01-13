@@ -11,12 +11,12 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/wapc/wapc-go"
 
-	module "github.com/wapc/rules-demo/pkg/rules"
+	rules "github.com/wapc/rules-demo/pkg/rules"
 )
 
 var mod *wapc.Module
 var instance *wapc.Instance
-var rulesEngine *module.Module
+var rulesEngine *rules.Module
 
 func main() {
 	err := reload()
@@ -40,7 +40,7 @@ func main() {
 }
 
 func DecideHandler(w http.ResponseWriter, r *http.Request) {
-	var facts module.Facts
+	var facts rules.Facts
 	if err := json.NewDecoder(r.Body).Decode(&facts); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		return
@@ -90,7 +90,7 @@ func reload() error {
 		return err
 	}
 
-	rulesEngine = module.New(instance)
+	rulesEngine = rules.New(instance)
 
 	return nil
 }
